@@ -3,4 +3,5 @@ class Flower < ApplicationRecord
 
   validates :name, presence: true
   validates :family, presence: true
+  validates :color, presence: true
 end
