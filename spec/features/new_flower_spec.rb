@@ -11,6 +11,9 @@ RSpec.feature "Create a flower", :type => :feature do
     click_button "Save"
 
     expect(page).to have_text("Flower was successfully created.")
+
+    visit "/flowers/"
+    expect(page).to have_text("Tulip")
   end
 
   scenario "User creates a new flower with edible uncheck" do
@@ -20,8 +23,11 @@ RSpec.feature "Create a flower", :type => :feature do
     fill_in "Color", :with => "Blue"
     uncheck 'Edible'
     click_button "Save"
-
     expect(page).to have_text("Flower was successfully created.")
+
+    visit "/flowers/"
+    expect(page).to have_text("Sunflower")
+
   end
 
   scenario "User creates a new flower without color" do
